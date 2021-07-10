@@ -133,25 +133,25 @@ export default {
 }
 
 .first {
-  animation: first-ball 2s forwards infinite linear;
+  animation: first-ball 2s forwards infinite;
   transform-origin: 50px 0;
   animation-delay: 2s;
 }
 
 .second {
-  animation: middle-ball 2s forwards infinite linear;
+  animation: middle-ball 2s forwards infinite;
   transform-origin: 70px 0;
   animation-delay: 1s;
 }
 
 .third {
-  animation: middle-ball 2s forwards infinite linear;
+  animation: middle-ball 2s forwards infinite;
   transform-origin: 90px 0;
   animation-delay: 1s;
 }
 
 .last {
-  animation: last-ball 2s forwards infinite linear;
+  animation: last-ball 2s forwards infinite;
   transform-origin: 110px 0;
   animation-delay: 3s;
 }
