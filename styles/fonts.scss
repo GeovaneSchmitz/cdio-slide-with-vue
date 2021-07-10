@@ -1,0 +1,37 @@
+/// Mixin to generate font-face
+///
+/// @author Geovane Schmitz
+/// @param {String} $font - Font name
+/// @param {List} $weights - Font weights E.g (400, 700)
+/// @param {List} $styles - Font weights E.g ('italic', 'normal')
+/// @param {String} $base-path - font folder src
+@mixin load-font($font, $weights, $styles, $base-path) {
+  @each $weight in $weights {
+    @each $style in $styles {
+      @font-face {
+        src: url($base-path + '-' + $weight + '-' + $style + '.woff2')
+          format('woff2');
+        font-family: $font;
+        font-display: swap;
+        font-style: unquote($style);
+        font-weight: $weight;
+      }
+    }
+  }
+}
+
+@include load-font(
+  'Gilroy',
+  (300, 800),
+  ('normal'),
+  '../assets/fonts/gilroy/Gilroy'
+);
+
+body,
+input,
+select,
+textarea {
+  font-weight: 300;
+  font-family: 'Gilroy', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,
+    Oxygen-Sans, Ubuntu, Cantarell, 'Helvetica Neue', sans-serif;
+}
