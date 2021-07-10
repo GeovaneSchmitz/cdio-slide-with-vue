@@ -54,18 +54,16 @@ export default {
       },
     },
   },
+  data() {
+    return { subtitle: '' }
+  },
   watch: {
     currentBreakpoint(value) {
       if (value.index === 'cover') {
         this.subtitle = ''
       }
     },
-  },
-  data() {
-    return { subtitle: '' }
-  },
-  mounted() {},
-  methods: {},
+  }
 }
 </script>
 
@@ -167,8 +165,7 @@ export default {
     height: 100vh;
     position: absolute;
     display: flex;
-    justify-items: center;
-    align-content: center;
+    justify-content: center;
     align-items: center;
     z-index: 0;
   }

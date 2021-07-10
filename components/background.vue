@@ -33,22 +33,22 @@
         line.line(x1="50" y1="0" x2="50" y2="45" stroke-width="0.2")
         circle.ball-conceive(r="10" cx="50" cy="45")
         circle.ball-shadow(r="10" cx="50" cy="45" fill="url(#shadow-ball-first)" )
-        image.ball(width="20" y="35" x="40" height="20" xlink:href="images/pendulo c.svg")
+        image.ball(width="20" y="35" x="40" height="20" :xlink:href="require('../assets/images/pendulo c.svg')")
       g.second
         line.line(x1="70" y1="0" x2="70" y2="45" stroke-width="0.2")
         circle.ball-design(r="10" cx="70" cy="45")
         circle.ball-shadow(r="10" cx="70" cy="45" fill="url(#shadow-ball)" )
-        image.ball(width="20" x="60" y="35" height="20" xlink:href="images/pendulo d.svg")
+        image.ball(width="20" x="60" y="35" height="20" :xlink:href="require('../assets/images/pendulo d.svg')")
       g.third
         line.line(x1="90" y1="0" x2="90" y2="45" stroke-width="0.2")
         circle.ball-implement(r="10" cx="90" cy="45")
         circle.ball-shadow(r="10" cx="90" cy="45" fill="url(#shadow-ball)" )
-        image.ball(width="20" x="80" y="35" height="20" xlink:href="images/pendulo i.svg")
+        image.ball(width="20" x="80" y="35" height="20" :xlink:href="require('../assets/images/pendulo i.svg')")
       g.last
         line.line(x1="110" y1="0" x2="110" y2="45" stroke-width="0.2")
         circle.ball-operate(r="10" cx="110" cy="45")
         circle.ball-shadow(r="10" cx="110" cy="45" fill="url(#shadow-ball-last)" )
-        image.ball.ball-last(width="20" transform-origin="110 45" x="100" y="35" height="20" xlink:href="images/pendulo o.svg")
+        image.ball.ball-last(width="20" transform-origin="110 45" x="100" y="35" height="20" :xlink:href="require('../assets/images/pendulo o.svg')")
 </template>
 
 <script>
@@ -58,7 +58,7 @@ export default {
     currentBreakpoint(value) {
       const animations = [
         { time: 2, element: this.$refs.firstShadowBall },
-        { time: 1, element: this.$refs.lastShadowBall },
+        { time: 1, element: this.$refs.lastShadowBall }
       ]
       if (value.index === 'cover') {
         for (const animation of animations) {
@@ -73,8 +73,8 @@ export default {
           }
         }
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

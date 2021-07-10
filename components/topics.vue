@@ -17,15 +17,15 @@ export default {
       type: Array,
       default() {
         return []
-      },
-    },
+      }
+    }
   },
   data() {
     return {
       setTimeoutId: null,
       currentTopics: 1,
       topics1: [],
-      topics2: [],
+      topics2: []
     }
   },
   watch: {
@@ -48,10 +48,10 @@ export default {
           },
           400)
       }
-    },
+    }
   },
 
-  methods: {},
+  methods: {}
 }
 </script>
 

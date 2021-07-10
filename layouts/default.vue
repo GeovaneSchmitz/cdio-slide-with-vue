@@ -8,18 +8,11 @@ export default {
     return { colorScheme: 'blue' }
   },
 
-  head() {
-    const head = {}
-    head.bodyAttrs = {}
-    head.bodyAttrs.class = this.colorScheme
-    return head
-  },
-
   mounted() {
     this.$root.$on('color-scheme-change', (colorScheme) => {
       this.colorScheme = colorScheme
     })
-  },
+  }
 }
 </script>
 

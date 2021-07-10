@@ -10,24 +10,24 @@ export default {
   props: {
     text: {
       type: String,
-      required: true,
+      required: true
     },
     speed: {
       type: Number,
-      default: 100,
+      default: 100
     },
     withErrors: {
       type: Boolean,
       required: false,
-      default: true,
-    },
+      default: true
+    }
   },
 
   data() {
     return {
       currentText: '',
       stack: [],
-      isRunning: false,
+      isRunning: false
     }
   },
 
@@ -44,14 +44,14 @@ export default {
       if (commonTextCount < oldValue.length) {
         this.stack.push({
           type: 'delete',
-          count: oldValue.length - commonTextCount,
+          count: oldValue.length - commonTextCount
         })
       }
       if (commonTextCount <= value.length) {
         this.stack.push({ type: 'add', text: value.slice(commonTextCount) })
       }
       this.updateText()
-    },
+    }
   },
   mounted() {
     if (this.text) {
@@ -114,8 +114,8 @@ export default {
         this.isRunning = false
         this.$emit('updated')
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

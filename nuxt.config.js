@@ -8,7 +8,7 @@ export default {
    */
   server: {
     host: '0.0.0.0', // default: localhost
-    port: '5001',
+    port: '5001'
   },
 
   ssr: true,
@@ -16,23 +16,23 @@ export default {
   target: 'server',
 
   render: {
-    csp: true,
+    csp: true
   },
 
   head: {
     title: 'CDIO - Slides',
     meta: [
       { charset: 'utf-8' },
-      { name: 'viewport', content: 'width=device-width, initial-scale=1' },
+      { name: 'viewport', content: 'width=device-width, initial-scale=1' }
     ],
     link: [
       { rel: 'icon', type: 'image/x-icon', href: '/favicon.ico' },
       {
         rel: 'preload',
         href: '',
-        as: 'font',
-      },
-    ],
+        as: 'font'
+      }
+    ]
   },
 
   components: true,
@@ -55,12 +55,12 @@ export default {
     '@aceforth/nuxt-optimized-images',
     '@nuxt/typescript-build',
     // Doc: https://github.com/nuxt-community/stylelint-module
-    '@nuxtjs/stylelint-module',
+    '@nuxtjs/stylelint-module'
   ],
 
   optimizedImages: {
     inlineImageLimit: -1,
-    optimizeImages: true,
+    optimizeImages: true
   },
   /*
    ** Nuxt.js modules
@@ -70,7 +70,7 @@ export default {
   http: {
     proxy: true, // Can be also an object with default options
     retry: 3,
-    proxyHeaders: true,
+    proxyHeaders: true
   },
 
   /*
@@ -83,7 +83,7 @@ export default {
     publicPath: '/public/',
 
     extractCSS: {
-      ignoreOrder: true,
+      ignoreOrder: true
     },
     /*
      ** You can extend webpack config here
@@ -94,9 +94,17 @@ export default {
       config.plugins.push(
         new LicensePlugin({
           outputFilename: `license-${buildType}.json`,
-          unacceptableLicenseTest: (licenseType) => licenseType.match(/GPL/i),
+          unacceptableLicenseTest: (licenseType) => licenseType.match(/GPL/i)
         })
       )
+      config.module.rules[0].options.transformAssetUrls.image = [
+        'xlink:href',
+        'href'
+      ]
+      config.module.rules[0].options.transformAssetUrls.use = [
+        'xlink:href',
+        'href'
+      ]
 
       config.module.rules.forEach((rule) => {
         rule.oneOf &&
@@ -109,7 +117,7 @@ export default {
                 ) {
                   if (!use.options.modules) {
                     use.options.modules = {
-                      getLocalIdent,
+                      getLocalIdent
                     }
                   } else {
                     delete use.options.modules.localIdentName
@@ -123,21 +131,19 @@ export default {
             )
             if (cssLoaderIndex > -1) {
               useOf.use.splice(cssLoaderIndex + 1, 0, {
-                loader: path.resolve(
-                  'build-utils/css/fix-classnames-before.js'
-                ),
+                loader: path.resolve('build-utils/css/fix-classnames-before.js')
               })
             }
           })
       })
       config.module.rules[1].oneOf[0].use.unshift({
-        loader: path.resolve('build-utils/css/fix-html.js'),
+        loader: path.resolve('build-utils/css/fix-html.js')
       })
 
       // Sets webpack's mode to development if `isDev` is true.
       if (isDev) {
         config.mode = 'development'
       }
-    },
-  },
+    }
+  }
 }

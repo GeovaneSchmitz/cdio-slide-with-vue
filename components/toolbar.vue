@@ -18,14 +18,14 @@ export default {
   props: {
     currentBreakpoint: {
       type: Object,
-      required: true,
-    },
+      required: true
+    }
   },
   data() {
     return {
       timeoutHideToolbar: 1000,
       toolbarActive: false,
-      toolbarFocus: false,
+      toolbarFocus: false
     }
   },
   methods: {
@@ -82,8 +82,8 @@ export default {
     },
     goToNextBreakpoint() {
       this.$root.$emit('request-to-next')
-    },
-  },
+    }
+  }
 }
 </script>
 
