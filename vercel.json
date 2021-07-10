@@ -3,7 +3,17 @@
     {
       "src": "nuxt.config.js",
       "use": "@nuxtjs/vercel-builder",
-      "config": {}
+      "config": {
+        "serverFiles": [
+          "lang/**",
+          "build-utils/**",
+          "nuxt.config.js",
+          "node.tsconfig.json"
+        ],
+        "tscOptions": {
+          "skipLibCheck": true
+        }
+      }
     }
   ],
   "routes": [
